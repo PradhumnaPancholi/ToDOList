@@ -20,10 +20,10 @@ var itemTemplate = document.getElementById('itemTemplate');
 // INSIGHT: This form will give the user the ability to
 // provide information about a new to do item.
 // Step 3a - The Item Name field
-let itemNameInput = document.querySelector('.form-group input');
+var itemNameInput = document.querySelector('.form-group input');
 
 // Step 3b - The Due Date field
-let dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
+var dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
 
 // Step 3c - The 'Create New Item' button for adding a new item
 // INSIGHT: We'll listen to the click event on this
@@ -34,30 +34,33 @@ var createButton = document.getElementById('addNewItem');
 // Step 4 - Add a click event listener to the HTML Element
 // you stored in Step 3c (should've been the 'Create New Item')
 // button.
-
+createButton.onclick = function(){
   // Step 4a - Check if item name is blank
-
+  if (itemNameInput.textContent == '')
     // Step 4b - Alert the user they need to enter a name
-
-
+  {
+    alert('Item name can not be empty');      
+  }
     // Step 4c - Return false to exit the event listener
-
-
+  else
+  {
+    return false;
+  }
 
   // Step 4d - Uncomment the next line to store the template content:
-  // let content = itemTemplate.content;
+  let content = itemTemplate.content;
 
   // Step 4e - Uncomment the next line to import the template content
   // into a new node:
-  // let newItemRow = document.importNode(content, true);
+  let newItemRow = document.importNode(content, true);
 
   // Step 4f - Using DOM walking, access the item entry cell
   // and store the current item name value
-
+  let itemValue = document.getElementsByClassName('item-entry');
 
   // Step 4f - Using DOM walking, access the item due date cell
   // and store the current due date value
-
+  let dueDateValue = document.getElementsByClassName('item-due-date');
 
   // Step 4g - Using DOM walking, access the item delete button
   // and make the onclick property equal to a function definition
@@ -79,8 +82,7 @@ var createButton = document.getElementById('addNewItem');
   // INSIGHT: We're prepending as we want new items to go to the
   // top. If you want them to be in reverse, then you will need
   // to append them instead.
-
-
+}
 
 
 // Step 5 - Create a new function called 'removeItem'. You will need
