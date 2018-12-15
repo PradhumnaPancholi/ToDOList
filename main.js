@@ -36,7 +36,7 @@ var createButton = document.getElementById('addNewItem');
 // button.
 createButton.onclick = function(){
   // Step 4a - Check if item name is blank
-  if (itemNameInput.textContent == '')
+  if (itemNameInput == "")
     // Step 4b - Alert the user they need to enter a name
   {
     alert('Item name can not be empty');      
@@ -44,20 +44,21 @@ createButton.onclick = function(){
     // Step 4c - Return false to exit the event listener
   else
   {
-    return false;
+    console.log(itemNameInput.value);
+    //return false;
   }
+
 
   // Step 4d - Uncomment the next line to store the template content:
   let content = itemTemplate.content;
-
   // Step 4e - Uncomment the next line to import the template content
   // into a new node:
   let newItemRow = document.importNode(content, true);
 
   // Step 4f - Using DOM walking, access the item entry cell
   // and store the current item name value
-  let itemValue = document.getElementsByClassName('item-entry');
-
+  let itemValue = document.getElementsByClassName('item-entry').value;
+  
   // Step 4f - Using DOM walking, access the item due date cell
   // and store the current due date value
   let dueDateValue = document.getElementsByClassName('item-due-date');
@@ -65,41 +66,39 @@ createButton.onclick = function(){
   // Step 4g - Using DOM walking, access the item delete button
   // and make the onclick property equal to a function definition
   // named removeItem
-
-
+  var deleteButton = document.getElementsByClassName('item-delete');
+  deleteButton.onclick = removeItem;
   // Step 4h- Using DOM walking, access the item edit button
   // and make the onclick property equal to a function definition
   // named editItem
-
-
+  var editButton = document.getElementsByClassName('item-edit');
+  editButton.onclick = editItem;
   // Step 4i - Reset the item name field value to nothing
-
+  itemNameInput.value = "";
 
   // Step 4j - Reset the due date field value to nothing
-
+  dueDateInput.value = "";
 
   // Step 4k - Prepend the new item row to the to do items list
   // INSIGHT: We're prepending as we want new items to go to the
   // top. If you want them to be in reverse, then you will need
   // to append them instead.
+  toDoItems.prepend(newItemRow);
 }
-
 
 // Step 5 - Create a new function called 'removeItem'. You will need
 // to capture the event in the parameter.
-
+function removeItem(event){
   // Step 5a - Access the closest parent tr HTML element
   // and remove it
   // INSIGHT: .closest() is a handy method that will move up the DOM
   // tree and attempt to find the closest ancestor that matches the
   // passed selector.
-
-
-
+}
 
 // Step 6 - Create a new function called 'editItem'. You will need
 // to capture the event in the parameter.
-
+function editItem(event){
   // Step 6a - Using DOM walking:
   // First find the closest tr tag.
   // Next, find an item entry that is a child of the tr tag.
@@ -127,7 +126,7 @@ createButton.onclick = function(){
     // and remove attributes applied to an HTML Element.
 
 
-
+}
 
 
 /*
