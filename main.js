@@ -61,7 +61,7 @@ createButton.onclick = function(){
   // and make the onclick property equal to a function definition
   // named removeItem
   var deleteButton = document.querySelector('.item-delete');
-  deleteButton.onclick = removeItem;
+  //deleteButton.onclick = removeItem;
 
   // Step 4h- Using DOM walking, access the item edit button
   // and make the onclick property equal to a function definition
@@ -105,7 +105,7 @@ function editItem(){
   // ancestors and children of the DOM. We can use methods like
   // .closest() and .querySelector() to do this efficiently.
   // Store the result in a variable
-  let selectedItem = document.querySelector()
+  let selectedItem = toDoItems.closest('tr').querySelector('.item-entry');
 
   // Step 6b - Using the .setAttribute() method, set the attribute
   // 'contenteditable' to true
@@ -113,17 +113,19 @@ function editItem(){
   // that allows regular non-field based HTML elements to have their
   // text edited inline. This is a convenient feature that is utilized
   // by many online WYSIWYG editors like TinyMCE and CKEditor.
-
+  selectedItem.setAttribute();
+  selectedItem.setAttribute('contentEditable', 'true');
 
   // Step 6c - Trigger focus on the element
-
+  selectedItem.focus();
 
   // Step 6d - Create an eventlistener on the blur event
-
-    // Step 6e - Remove the attribute 'contenteditable'
-    // INSIGHT: .addAttribute() and .removeAttribute() add
-    // and remove attributes applied to an HTML Element.
-
+  selectedItem.addEventListener('blur', function(event){
+    selectedItem.removeAttribute('contentEditable', 'true');
+  // Step 6e - Remove the attribute 'contenteditable'
+  // INSIGHT: .addAttribute() and .removeAttribute() add
+  // and remove attributes applied to an HTML Element.
+  });
 
 }
 
