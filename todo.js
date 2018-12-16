@@ -1,16 +1,16 @@
-var toDoItems = document.getElementById('toDoItems');
+const toDoItems = document.getElementById('toDoItems');
 
-var itemTemplate = document.getElementById('itemTemplate');
+const itemTemplate = document.getElementById('itemTemplate');
 
-var itemNameInput = document.querySelector('.form-group input');
+const itemNameInput = document.querySelector('.form-group input');
 
-var dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
+const dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
 
-var createButton = document.getElementById('addNewItem'); 
+const createButton = document.getElementById('addNewItem');
 
 createButton.onclick = function(){
     console.log('you pressed createButton');
-    if(itemNameInput.value == ""){
+    if(itemNameInput.value === ""){
         alert('Item name can not be empty');
         return false;
     }
@@ -22,22 +22,22 @@ createButton.onclick = function(){
 
     // Using DOM walking, access the item entry cell
     // and store the current item name value
-    let itemValue = document.getElementsByClassName('item-entry'); 
+    const itemValue = document.getElementsByClassName('item-entry');
     itemValue.textContent = itemNameInput.value;
-    console.log(itemValue)
+    console.log(itemValue);
     // Using DOM walking, access the item due date cell
     // and store the current due date value
-    let dueDateValue = document.getElementsByClassName('item-due-date');
+    const dueDateValue = document.getElementsByClassName('item-due-date');
 
     //  Using DOM walking, access the item delete button
     // and make the onclick property equal to a function definition
     // named removeItem
-    var deleteButton = document.querySelector('.item-delete');
+    const deleteButton = document.querySelector('.item-delete');
     //deleteButton.onclick = removeItem;
     // Step 4h- Using DOM walking, access the item edit button
     // and make the onclick property equal to a function definition
     // named editItem
-    var editButton = document.getElementsByClassName('item-edit');
+    const editButton = document.getElementsByClassName('item-edit');
     //editButton.onclick = editItem;
     // Step 4i - Reset the item name field value to nothing
     //itemNameInput.textContent = "";
@@ -50,4 +50,4 @@ createButton.onclick = function(){
     // top. If you want them to be in reverse, then you will need
     // to append them instead.
     toDoItems.prepend(newItemRow);
-}
+};
