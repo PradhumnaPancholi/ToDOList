@@ -9,36 +9,36 @@
 // INSIGHT: We'll be storing the item entires in the
 // tbody. Storing this HTMLElement will give us better
 // access to add new items.
-var toDoItems = document.getElementById('toDoItems');
+const toDoItems = document.querySelector('#toDoItems');
 
 // Step 2 - Select and store the item template HTML Element.
 // INSIGHT: HTML templates are handy for keeping your
 // HTML out of your JavaScript. This makes portability easier.
-var itemTemplate = document.getElementById('itemTemplate');
+const itemTemplate = document.querySelector('#itemTemplate');
 
 // Step 3 - Select and store the following HTML Elements:
 // INSIGHT: This form will give the user the ability to
 // provide information about a new to do item.
 // Step 3a - The Item Name field
-var itemNameInput = document.querySelector('.form-group input');
+const itemNameInput = document.querySelector('.form-group input');
 
 // Step 3b - The Due Date field
-var dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
+const dueDateInput = document.querySelector('.form-group:nth-of-type(2) input');
 
 // Step 3c - The 'Create New Item' button for adding a new item
 // INSIGHT: We'll listen to the click event on this
 // button. That should tell us the user is ready to
 // add the information to a new item.
-var createButton = document.getElementById('addNewItem');  
+const createButton = document.querySelector('#addNewItem');
 
 // Step 4 - Add a click event listener to the HTML Element
 // you stored in Step 3c (should've been the 'Create New Item')
 // button.
 createButton.onclick = function(){
   // Step 4a - Check if item name is blank
-  if (itemNameInput.value == ""){
+  if (itemNameInput.value === "") {
     // Step 4b - Alert the user they need to enter a name
-    alert('Item name can not be empty');      
+    alert('Item name can not be empty');
     // Step 4c - Return false to exit the event listener
     return false;
   }
@@ -50,29 +50,30 @@ createButton.onclick = function(){
 
   // Step 4f - Using DOM walking, access the item entry cell
   // and store the current item name value
-  let itemValue = document.getElementsByClassName('item-entry'); 
+  const itemValue = document.getElementsByClassName('item-entry');
   itemValue.innerHTML = itemNameInput.value;
-  
+
   // Step 4f - Using DOM walking, access the item due date cell
   // and store the current due date value
-  let dueDateValue = document.getElementsByClassName('item-due-date');
+  const dueDateValue = document.getElementsByClassName('item-due-date');
   dueDateValue.innerHTML = dueDateInput.value;
+
   // Step 4g - Using DOM walking, access the item delete button
   // and make the onclick property equal to a function definition
   // named removeItem
-  var deleteButton = document.querySelector('.item-delete');
+  const deleteButton = document.querySelector('.item-delete');
   //deleteButton.onclick = removeItem;
 
   // Step 4h- Using DOM walking, access the item edit button
   // and make the onclick property equal to a function definition
   // named editItem
-  var editButton = document.getElementsByClassName('item-edit');
+  const editButton = document.getElementsByClassName('item-edit');
   //editButton.onclick = editItem;
   // Step 4i - Reset the item name field value to nothing
-  itemNameInput.value = " ";
+  itemNameInput.value = "";
 
   // Step 4j - Reset the due date field value to nothing
-  dueDateInput.value = " ";
+  dueDateInput.value = "";
 
   // Step 4k - Prepend the new item row to the to do items list
   // INSIGHT: We're prepending as we want new items to go to the
@@ -80,7 +81,7 @@ createButton.onclick = function(){
   // to append them instead.
   toDoItems.prepend(newItemRow);
   
-}
+};
 
 // Step 5 - Create a new function called 'removeItem'. You will need
 // to capture the event in the parameter.
@@ -105,7 +106,7 @@ function editItem(){
   // ancestors and children of the DOM. We can use methods like
   // .closest() and .querySelector() to do this efficiently.
   // Store the result in a variable
-  let selectedItem = toDoItems.closest('tr').querySelector('.item-entry');
+  const selectedItem = toDoItems.closest('tr').querySelector('.item-entry');
 
   // Step 6b - Using the .setAttribute() method, set the attribute
   // 'contenteditable' to true
@@ -113,20 +114,22 @@ function editItem(){
   // that allows regular non-field based HTML elements to have their
   // text edited inline. This is a convenient feature that is utilized
   // by many online WYSIWYG editors like TinyMCE and CKEditor.
-  selectedItem.setAttribute();
+
+  //selectedItem.contentEditable = 'true';
   selectedItem.setAttribute('contentEditable', 'true');
+
+
 
   // Step 6c - Trigger focus on the element
   selectedItem.focus();
 
   // Step 6d - Create an eventlistener on the blur event
   selectedItem.addEventListener('blur', function(event){
-    selectedItem.removeAttribute('contentEditable', 'true');
-  // Step 6e - Remove the attribute 'contenteditable'
+  // Step 6e - Remove the attribute 'contentEditable'
   // INSIGHT: .addAttribute() and .removeAttribute() add
   // and remove attributes applied to an HTML Element.
+    selectedItem.removeAttribute('contentEditable');
   });
-
 }
 
 
