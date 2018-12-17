@@ -1,17 +1,18 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <!-- Step 1 - Include your styles sheet -->
-
+    <link rel="stylesheet" href="styles.css">
     <title>The To Do List</title>
   </head>
 
   <body>
     <div class="container">
-      <header>
-        <h1>Your To Do List Title Here</h1>
+      <header class="navbar">
+        <h1>To Do List</h1>
       </header>
 
       <!--
@@ -25,20 +26,20 @@
       -->
       <div id="newItemForm">
         <div class="form-group">
-          <label>Item Name</label>
-          <input name="itemName" type="text" class="form-control">
+          <!--<label class="text-center">Item Name</label>-->
+          <input name="itemName" type="text" class="form-control" placeholder="Item Name">
         </div>
 
         <div class="form-group">
-          <label>Due Date</label>
-          <input name="dueDate" type="date" class="form-control">
+          <!--<label>Due Date</label>-->
+          <input name="dueDate" type="date" class="form-control" placeholder="Due Date"> 
         </div>
 
         <!-- The button for adding a new to do item -->
-        <div class="form-group">
+        <div class="form-group text-center">
           <button id="addNewItem" class="btn btn-primary">
             <i class="fa fa-plus"></i>
-            Create New Item
+            Add To List
           </button>
         </div>
       </div>

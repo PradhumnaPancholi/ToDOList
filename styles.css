@@ -1,31 +1,27 @@
-/* Step 1 - Add a nice background */
-body {
-
+.navbar {
+    font-size: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 10px;
+    background-color: #333399;
+    color: white;
+    
 }
 
-/* Step 2 - Add a nice card style */
-.card {
-
+.navbar h1{
+    text-align: center;
+    padding: auto;
+    margin: auto;
 }
 
-/* Step 3 - Add a nice hover effect */
-.card:hover {
-
+.form-group input{
+    width: 50%;
+    padding: auto;
+    margin: auto;
+    margin-top: 5%;
 }
 
-/* Step 4 (+4 points) - Write a style for a flipped card */
-.flipped {
-
+.btn{
+    background-color: #333399;
 }
 
-/* Step 5 - Add a nice style to the message element */
-#message {
 
-}
-
-/* Step 6 - Add 5 more style changes... */
-/* 1) */
-/* 2) */
-/* 3) */
-/* 4) */
-/* 5) */
